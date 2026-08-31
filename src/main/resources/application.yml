@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: microservicio-persona
+  r2dbc:
+    url: r2dbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:person_db}
+    username: ${DB_USER:root}
+    password: ${DB_PASSWORD:root}
+    pool:
+      enabled: true
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql
+server:
+  port: ${SERVER_PORT:8084}
+bootcamp:
+  service:
+    url: ${BOOTCAMP_SERVICE_URL:http://localhost:8083}
+report:
+  service:
+    url: ${REPORT_SERVICE_URL:http://localhost:8085}
+springdoc:
+  api-docs:
+    path: /v3/api-docs
